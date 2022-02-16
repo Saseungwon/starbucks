@@ -40,12 +40,40 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <link rel="stylesheet" href="./css/main.css">
+  <script defer src="./js/main.js"></script>
 </head>
 <body>
-  Hello wolrd!
 
-  <span class="material-icons">  
-    login <!-- 구글 아이콘, 폰트 사이즈를 키워야 크기가 커진다.(글씨처럼 간주됨) -->
-  </span>
+  <!-- HEADER -->
+  <header>
+    <div class="inner">
+      <a href="/" class="logo">   <!-- href를 루트로 놔도 도메인/index.html 로 가진다. -->
+        <img src="./images/starbucks_logo.png" alt="STARBUCKS" />
+      </a>
+
+      <div class="sub-menu">
+        <ul class="menu">
+          <li>
+            <a href="/signin">Sign In</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">My Starbucks</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Customer Service & Ideas</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Find a Store</a>
+          </li>
+        </ul>
+        <div class="search">
+          <input type="text" />
+          <div class="material-icons">search</div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
 </body>
 </html>

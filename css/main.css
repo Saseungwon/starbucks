@@ -1,5 +1,123 @@
+/* COMMON */
 body{
-  color: red;
-  font-size: 100px;
+  color: #333; 
+  font-size: 16px;
+  font-weight: 400;   /* 글자두께 100~900 */
+  line-height: 1.4;   /* 줄의 높이(행간) */
   font-family: 'Nanum Gothic', sans-serif;
+}
+img {
+  display: block;   /* 이제부터 이미지를 인라인요소(글자)로 취급하지 않고 하나의 레이아웃으로 취급하겠다. */
+}
+a {
+  text-decoration: none;  /* 이 프로젝트에서 a태그의 밑줄을 모두 삭제 */
+}
+
+/* HEADER */
+header {
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+}
+header .inner {
+  margin: 0 auto;     /* 중앙정렬 */
+  width: 1100px;
+  height: 120px;
+  position: relative;   /* 부모요소에 포지션 지정 : 수직 가운데 정렬 */
+}
+header .logo {
+  height: 75px;
+  position: absolute;   /* 자식요소에 포지션 지정 : 수직 가운데 정렬 absolute  */
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  /* 수직가운데 정렬 할 때 필요한 것들
+      1. height
+      2. top
+      3. bottom
+      4. margin: auto
+      5. position: absolute(자식에)
+      6. position: relative(부모에) */
+
+  left: 0;
+  /* 수평가운데 정렬 할 때 필요한 것들
+      1. left
+      2. right
+      3. margin: auto
+      4. width */
+}
+
+
+header .sub-menu{
+  position: absolute;
+  top: 10;
+  right: 0;
+  display: flex; /* 요소들이 수평정렬됨 */ 
+}
+header .sub-menu ul.menu {
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+header .sub-menu ul.menu li {
+  position: relative;
+}
+header .sub-menu ul.menu li::before { /* :: 가상요소 선택자 */
+  /* 메뉴 구분선 */
+  content: "";
+  display: block;
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+header .sub-menu ul.menu li:first-child::before { 
+  /* 첫번째 요소를 삭제, 가장 왼쪽의 구분선 삭제 */
+  display: none;
+}
+header .sub-menu ul.menu li a {
+  font-size: 12px;
+  padding: 11px 16px;
+  display: block;     /* a태그를 인라인요소가 아닌 블록요소로 지정해줌 */ 
+  color: #656565;
+}
+header .sub-menu ul.menu li a:hover { /* hover : a부분에 마우스 올리면 어떻게 처리하겠다 지정 */
+  color: #000;  /* 마우스 올리면 글자 검정색으로 바뀜 */
+}
+header .sub-menu .search {
+  height: 34px;
+  position: relative; /* search icon 부모요소라서 */
+}
+header .sub-menu .search input {
+  /* 검색창 */
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;   /* 테두리 둥글게 */
+  outline: none;        /* 클릭할 때 테두리선 색 바뀌는 거 삭제 */ 
+  background-color: #fff;
+  color: #777; 
+  transition: width .4s; /* 전환효과 지정 */
+  font-size: 12px;
+}
+header .sub-menu .search input:focus { /* input이 focus되면 어떻게 할 건지 지정 */ 
+  width: 190px;
+  border-color: #669900;
+}
+header .sub-menu .search .material-icons {
+  /* search 아이콘 */
+  height: 24px; 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  transition: .4s;
+}
+header .sub-menu .search.focused .material-icons {
+  /* search icon이 focused 됐을 때 아이콘 안 보이게 하기 */ 
+  opacity: 0;  /* 완전히 투명하게 */
 }

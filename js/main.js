@@ -15,3 +15,11 @@ searchInputEl.addEventListener('blur', function(){    // focus 반대개념 : bl
   searchEl.classList.remove('focused'); // searchEl를 가지고 있는 요소에 focused 를 삭제하겠다. 
   searchInputEl.setAttribute('placeholder', ''); // html속성을 attribute라고 한다 -> setAttribute : searchInputEl에 어떤 html 속성을 지정한다.
 }); 
+
+
+
+const badgeEl = document.querySelector('header .badges');
+
+window.addEventListener('scroll', function(){
+  console.log('scroll!');
+});

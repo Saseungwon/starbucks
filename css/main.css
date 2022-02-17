@@ -5,6 +5,7 @@ body{
   font-weight: 400;   /* 글자두께 100~900 */
   line-height: 1.4;   /* 줄의 높이(행간) */
   font-family: 'Nanum Gothic', sans-serif;
+  height: 3000px;
 }
 img {
   display: block;   /* 이제부터 이미지를 인라인요소(글자)로 취급하지 않고 하나의 레이아웃으로 취급하겠다. */
@@ -12,17 +13,22 @@ img {
 a {
   text-decoration: none;  /* 이 프로젝트에서 a태그의 밑줄을 모두 삭제 */
 }
+.inner {
+  width: 1100px;
+  margin: 0 auto;   /* 가운데 정렬 */
+  position: relative;  /* 위치상의 부모요소가 되도록 */
+}
 
 /* HEADER */
 header {
+  width: 100%;
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
+  position: fixed;
+  top: 0;
 }
-header .inner {
-  margin: 0 auto;     /* 중앙정렬 */
-  width: 1100px;
+header > .inner {     /* > 헤더안에 있는 inner에만 적용하라는 것 */
   height: 120px;
-  position: relative;   /* 부모요소에 포지션 지정 : 수직 가운데 정렬 */
 }
 header .logo {
   height: 75px;
@@ -121,3 +127,87 @@ header .sub-menu .search.focused .material-icons {
   /* search icon이 focused 됐을 때 아이콘 안 보이게 하기 */ 
   opacity: 0;  /* 완전히 투명하게 */
 }
+
+header .main-menu {
+  display: flex;    /* flex : 각각의 메뉴들을 수평 정렬 */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+header .main-menu .item {
+  
+}
+header .main-menu .item .item__name {
+  padding: 10px 20px 34px 20px; 
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+header .main-menu .item:hover .item__name { /* hover를 item__name 말고 item에 직접 부여한다. */
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;  /* 좌상단, 우상단만 모서리 깎기 */
+}
+header .main-menu .item .item__contents {
+  width: 100%;
+  position: fixed;  /* 뷰포트 기준으로 고정 */
+  left: 0;
+  display: none;
+}
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+}
+header .main-menu .item .item__contents .contents__menu > ul {    /* > 자식선택자로 정확하게 지정 */
+  display: flex;    /* 요소들이 수평으로 정렬 되도록 */
+  padding: 20px 0;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li {    
+  width: 220px;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {    
+  padding: 3px 0 12px 0; 
+  font-size: 14px;
+  color: #fff;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {    
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover { 
+  /* 드롭다운 메뉴 글자 위에 마우스 올리면 글자색 변하게 */
+  color: #669900;
+
+}
+header .main-menu .item .item__contents .contents__texture {
+  padding: 26px 0;
+  font-size: 12px;
+  background-image: url("../images/main_menu_pattern.jpg");
+}
+header .main-menu .item .item__contents .contents__texture h4 {
+  color: #999;
+  font-weight: 700;
+}
+header .main-menu .item .item__contents .contents__texture p {
+  color: #669900;
+  margin: 4px 0 14px;
+}
+
+/* 사이드 뱃지 */
+header .badges {
+  position: absolute;
+  top: 132px; 
+  right: 12px; 
+}
+header .badges .badge {
+  border-radius: 10px;
+  overflow: hidden;     /* 둥근 모서리 밖으로 이미지가 넘치지 않도록 숨기기  */
+  margin-bottom: 12px;  /* 아래쪽 바깥 여백을 줘서 뱃지 사이에 공백주기 */  
+  box-shadow: 4px 4px 10px rgba(0,0,0,.15);   /* 박스에 그림자 주기 */
+  cursor: pointer;
+}
+

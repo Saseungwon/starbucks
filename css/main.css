@@ -18,6 +18,40 @@ a {
   margin: 0 auto;   /* 가운데 정렬 */
   position: relative;  /* 위치상의 부모요소가 되도록 */
 }
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;   /* 요소가 커지지 않도록 */
+  display: block;
+  transition: .4s;  /* 전환효과 자연스럽게 */ 
+}
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse {   /* 상태가 다음과 같은 클래스는? */
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;    /* 마우스 떼면 원래대로 돌아오기 transparent(투명) */
+  color: #333;
+}
+.btn.btn--brown {   
+  background-color: #592B18;
+  color: #592B18;
+}
+.btn.btn--brown:hover {
+  color: #fff;
+  background-color: #592B18;
+}
 
 /* HEADER */
 header {
@@ -26,6 +60,7 @@ header {
   border-bottom: 1px solid #c8c8c8;
   position: fixed;
   top: 0;
+  z-index: 9;
 }
 header > .inner {     /* > 헤더안에 있는 inner에만 적용하라는 것 */
   height: 120px;
@@ -219,26 +254,37 @@ header .badges .badge {
 }
 .visual .inner {
   height: 646px;
-  background-color: orange;
 }
 .visual .title {
-
+  position: absolute;
+  top: 88px;
+  left: -10px;
 }
 .visual .title .btn {
 
 }
-.visual .cup1 .image {
-
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0px;
+  right: -47px;
 }
-.visual .cup1 .text {
-
+.visual .cup1.text {
+  position: absolute;
+  top: 38px;
+  left: 171px;
 }
-.visual .cup2 .image {
-
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
 }
-.visual .cup2 .text {
-
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
 }
 .visual .spoon {
-
+  position: absolute;
+  bottom: 0;
+  left: 275px;
 }

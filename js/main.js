@@ -38,3 +38,25 @@ window.addEventListener('scroll', _.throttle(function(){
         });
   }
 }, 300));
+
+
+
+// 음료 사진 fade-in
+const fadeEls = document.querySelectorAll('.visual .fade-in'); 
+fadeEls.forEach(function(fadeEl, index) {
+  //gsap.to(요소, 지속시간, 옵션) - gsap 애니메니션 라이브러리 사용
+  gsap.to(fadeEl, 1, {
+    delay: (index + 1) * .7,  // 첫번째 사진 0.7초 뒤에, 두번째 사진 1.4초 뒤에, 세번째 사진 2.1초 뒤에
+    opacity: 1
+  });
+});
+
+
+
+// Slide
+// new Swiper(선택자, 옵션)
+new Swiper('.notice-line .swiper-container', {  // Swiper 라이브러리 함수 실행
+  direction: 'vertical',
+  autoplay: true,
+  loop: true
+}); 

@@ -410,5 +410,5 @@ header .badges .badge {
   position: absolute;
   top: 40px;
   left: 50%;
-  margin-left: -1238.5px;
+  margin-left: calc((819px * 3 + 20px) / -2);
 }

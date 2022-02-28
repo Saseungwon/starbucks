@@ -116,3 +116,40 @@ promotionToggleBtn.addEventListener('click', function () {
 });
 
 
+// 범위 랜덤 함수(소수점 2자리까지)
+function random(min, max) {
+  // `.toFixed()`를 통해 반환된 문자 데이터를,
+  // `parseFloat()`을 통해 소수점을 가지는 숫자 데이터로 변환
+  return parseFloat((Math.random() * (max - min) + min).toFixed(2))
+}
+// 유튜브 영상에 떠있는 공 애니메이션
+function floatingObject(selector, delay, size) {
+  // gsap.to(요소, 시간, 옵션); https://greensock.com/docs/v3/GSAP/gsap.to()
+  gsap.to(
+    selector, // 선택자
+    random(1.5, 2.5), // 애니메이션 동작 시간
+    { // 옵션
+      y: size,
+      repeat: -1,
+      yoyo: true, 
+      ease: Power1.easeInOut,
+      delay: random(0, delay)
+    }
+  );
+}
+floatingObject('.floating1', 1, 15);
+floatingObject('.floating2', .5, 15);
+floatingObject('.floating3', 1.5, 20);
+
+
+// ScrollMagic
+const spyEls = document.querySelectorAll('section.scroll-spy')
+spyEls.forEach(function(spyEls){
+  new ScrollMagic
+    .Scene({
+      triggerElement: spyEls,  // 보여짐 여부를 감시할 요소를 지정
+      triggerHook: .8          // 뷰포트 0.8 지점에 걸리면 어떠한 내용이 실행됨
+    })          
+    .setClassToggle()
+    .addTo();         // 메소드 체이닝
+});

@@ -48,6 +48,7 @@ window.addEventListener('scroll', _.throttle(function(){
   }
 }, 300));
 
+
 // 맨위로
 toTopEl.addEventListener('click', function(){
   gsap.to(window, .7, {
